@@ -2,3 +2,37 @@ modules = ["web"]
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Full Stack Dev"
+
+[[workflows.workflow]]
+name = "Start Angular"
+author = 23991417
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd src && npm start"
+
+[[workflows.workflow]]
+name = "Start .NET API"
+author = 23991417
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && dotnet run"
+
+[[workflows.workflow]]
+name = "Full Stack Dev"
+author = 23991417
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd src && npm start"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && dotnet run"

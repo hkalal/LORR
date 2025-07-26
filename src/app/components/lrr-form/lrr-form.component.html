@@ -1,0 +1,405 @@
+
+<h2>Local Risk Review Form</h2>
+
+<form [formGroup]="lrrForm" (ngSubmit)="onSubmit()">
+  
+  <fieldset>
+    <legend>General & Project Info</legend>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sfdcRef">SFDC Reference No.</label>
+        <input type="text" id="sfdcRef" formControlName="sfdcRef">
+      </div>
+      <div class="form-group">
+        <label for="dateCreated">Date Created</label>
+        <input type="date" id="dateCreated" formControlName="dateCreated">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="securityLevel">Security Level</label>
+        <select id="securityLevel" formControlName="securityLevel">
+          <option value="">Select…</option>
+          <option value="Confidential">Confidential</option>
+          <option value="Internal">Internal</option>
+          <option value="Public">Public</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="projectNo">Project No.</label>
+        <input type="text" id="projectNo" formControlName="projectNo">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="solution">Solution</label>
+        <select id="solution" formControlName="solution">
+          <option value="">Select…</option>
+          <option value="CSS Automated">CSS Automated</option>
+          <option value="NSPP">NSPP</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="creatorName">Creator Name *</label>
+        <input type="text" id="creatorName" formControlName="creatorName" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="docStatus">Status of Document</label>
+        <select id="docStatus" formControlName="docStatus">
+          <option value="">Select…</option>
+          <option value="Draft">Draft</option>
+          <option value="Final">Final</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="projectStatus">Project Status</label>
+        <select id="projectStatus" formControlName="projectStatus">
+          <option value="">Select…</option>
+          <option value="In Process">In Process</option>
+          <option value="Won">Won</option>
+          <option value="Lost">Lost</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Project & Tender Details</legend>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="projectName">Project Name *</label>
+        <input type="text" id="projectName" formControlName="projectName" required>
+      </div>
+      <div class="form-group">
+        <label for="customerName">Customer Name *</label>
+        <input type="text" id="customerName" formControlName="customerName" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="customerCountry">Customer Country</label>
+        <input type="text" id="customerCountry" formControlName="customerCountry">
+      </div>
+      <div class="form-group">
+        <label for="endUserName">End User Name</label>
+        <input type="text" id="endUserName" formControlName="endUserName">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="endUserCountry">End User Country</label>
+        <input type="text" id="endUserCountry" formControlName="endUserCountry">
+      </div>
+      <div class="form-group">
+        <label for="tenderResponsible">Tender Responsible</label>
+        <input type="text" id="tenderResponsible" formControlName="tenderResponsible">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tenderUnit">Tendering Unit</label>
+        <input type="text" id="tenderUnit" formControlName="tenderUnit">
+      </div>
+      <div class="form-group">
+        <label for="mainScope">Main Scope</label>
+        <select id="mainScope" formControlName="mainScope">
+          <option value="">Select…</option>
+          <option value="Supply of Products & Spares with ETC">Supply of Products & Spares with ETC</option>
+          <option value="Supply of Products only">Supply of Products only</option>
+          <option value="Services only">Services only</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="estimatedBid">Estimated Bid Value (INR)</label>
+        <input type="number" id="estimatedBid" formControlName="estimatedBid" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="tenderDue">Tender Due Date</label>
+        <input type="date" id="tenderDue" formControlName="tenderDue">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="awardDate">Estimated Contract Award Date</label>
+        <input type="date" id="awardDate" formControlName="awardDate">
+      </div>
+      <div class="form-group">
+        <label for="salesManager">Front End Sales / Group Account Manager</label>
+        <input type="text" id="salesManager" formControlName="salesManager">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="projectManager">Project Manager</label>
+        <input type="text" id="projectManager" formControlName="projectManager">
+      </div>
+      <div class="form-group">
+        <label for="tpmStatus">TPM Process Completed</label>
+        <select id="tpmStatus" formControlName="tpmStatus">
+          <option value="">Select…</option>
+          <option value="Not Started">Not Started</option>
+          <option value="In Process">In Process</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>LRR Questionnaire</legend>
+    
+    <div class="radio-group">
+      <p>1) Offer value is above 2 M USD?</p>
+      <label><input type="radio" formControlName="q1" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q1" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>2) Contract limitation of liability in line with policies?</p>
+      <label><input type="radio" formControlName="q2" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q2" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>3) Consequential losses clause in line with policies?</p>
+      <label><input type="radio" formControlName="q3" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q3" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>4) Availability/reliability guarantee or new tech involved?</p>
+      <label><input type="radio" formControlName="q4" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q4" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>5) Compliance with Minimum Commercial Standards?</p>
+      <label><input type="radio" formControlName="q5" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q5" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>6) Requires Nuclear Sales Policy risk review?</p>
+      <label><input type="radio" formControlName="q6" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q6" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>7) Anti-Bribery & Anti-Corruption trigger?</p>
+      <label><input type="radio" formControlName="q7" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q7" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>8) Related to an ACT Country?</p>
+      <label><input type="radio" formControlName="q8" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q8" value="no"> No</label>
+    </div>
+
+    <div class="radio-group">
+      <p>9) Multi-Business Area Sales Frame Agreement?</p>
+      <label><input type="radio" formControlName="q9" value="yes"> Yes</label>
+      <label><input type="radio" formControlName="q9" value="no"> No</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Financial & Contract Terms</legend>
+    
+    <div class="form-group">
+      <label for="paymentTerms">Terms of Payment</label>
+      <textarea id="paymentTerms" formControlName="paymentTerms" rows="3"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="warrantyMonths">Warranty Period (months)</label>
+        <input type="number" id="warrantyMonths" formControlName="warrantyMonths">
+      </div>
+      <div class="form-group">
+        <label for="financingStatus">Customer's Financing Status</label>
+        <select id="financingStatus" formControlName="financingStatus">
+          <option value="">Select…</option>
+          <option value="Self-financed">Self-financed</option>
+          <option value="Bank-financed">Bank-financed</option>
+          <option value="Export Credit Financed">Export Credit Financed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="warrantyClause">Warranty Clause Details</label>
+      <textarea id="warrantyClause" formControlName="warrantyClause" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="scopeDetail">Detail Scope of Supply</label>
+      <textarea id="scopeDetail" formControlName="scopeDetail" rows="4"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="creditAssessment">Credit Assessment File (URL)</label>
+      <input type="url" id="creditAssessment" formControlName="creditAssessment">
+    </div>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" formControlName="ldApplicable"> LD Applicable</label>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ldCapping">LD Capping (%)</label>
+        <input type="text" id="ldCapping" formControlName="ldCapping">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ldClause">LD Clause Details & Mitigation Plan</label>
+      <textarea id="ldClause" formControlName="ldClause" rows="3"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Risk Assessment & Mitigation</legend>
+    
+    <div class="form-group">
+      <label for="identifiedRisk">Identified Risks</label>
+      <textarea id="identifiedRisk" formControlName="identifiedRisk" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="mitigationPlan">Mitigation Plan</label>
+      <textarea id="mitigationPlan" formControlName="mitigationPlan" rows="3"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Delivery & Tax</legend>
+    
+    <div class="form-group">
+      <label for="deliveryIncoterms">Delivery Terms / Incoterms</label>
+      <select id="deliveryIncoterms" formControlName="deliveryIncoterms">
+        <option value="">Select…</option>
+        <option value="EXW">EXW</option>
+        <option value="FCA">FCA</option>
+        <option value="FAS">FAS</option>
+        <option value="CPT">CPT</option>
+        <option value="CIP">CIP</option>
+        <option value="DAF">DAF</option>
+        <option value="DES">DES</option>
+        <option value="DEQ">DEQ</option>
+        <option value="DDU">DDU</option>
+        <option value="DDP">DDP</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="taxExposure">Tax Exposure & Mitigation</label>
+      <textarea id="taxExposure" formControlName="taxExposure" rows="3"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Additional & Attachments</legend>
+    
+    <div class="form-group">
+      <label for="comments">Overall Comments</label>
+      <textarea id="comments" formControlName="comments" rows="3"></textarea>
+    </div>
+
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="confirmation">
+        I confirm all questions are answered objectively and mitigating actions will be followed
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Project Financials</legend>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pfBidValue">Bid Value</label>
+        <input type="number" id="pfBidValue" formControlName="pfBidValue" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="pfGrossMargin">Gross Margin (%)</label>
+        <input type="number" id="pfGrossMargin" formControlName="pfGrossMargin" step="0.01">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pfNetMargin">Net Margin (%)</label>
+        <input type="number" id="pfNetMargin" formControlName="pfNetMargin" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="pfWarrantyProv">Warranty Provision (%)</label>
+        <input type="number" id="pfWarrantyProv" formControlName="pfWarrantyProv" step="0.01">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pfInflation">General Inflation (%)</label>
+        <input type="number" id="pfInflation" formControlName="pfInflation" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="pfContingencies">Contingencies (%)</label>
+        <input type="number" id="pfContingencies" formControlName="pfContingencies" step="0.01">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pfRiskProv">Risk Provision (%)</label>
+        <input type="number" id="pfRiskProv" formControlName="pfRiskProv" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="pfTotalProv">Total Provision (%)</label>
+        <input type="number" id="pfTotalProv" formControlName="pfTotalProv" step="0.01">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pfMatCost">Material Cost (%)</label>
+        <input type="number" id="pfMatCost" formControlName="pfMatCost" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="pfDeltaRR">Option Availability for Delta RR</label>
+        <input type="text" id="pfDeltaRR" formControlName="pfDeltaRR">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pfApprovalComments">Default Comment for Approval</label>
+      <textarea id="pfApprovalComments" formControlName="pfApprovalComments" rows="2"></textarea>
+    </div>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" formControlName="pptOutput"> Output in PPT checked</label>
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="!lrrForm.valid">Submit</button>
+    <button type="button" (click)="onReset()">Reset</button>
+  </div>
+</form>

@@ -1,0 +1,78 @@
+
+<h2>RR Criteria Checklist</h2>
+
+<form [formGroup]="rrForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="criteria1">Field 1: Description *</label>
+    <input type="text" id="criteria1" formControlName="criteria1" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="criteria2">Field 2: Priority *</label>
+    <input type="text" id="criteria2" formControlName="criteria2" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="criteria3">Field 3: Status *</label>
+    <input type="text" id="criteria3" formControlName="criteria3" required>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" rows="3"></textarea>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" formControlName="priority">
+        <option value="">Select…</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status">
+        <option value="">Select…</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+        <option value="On Hold">On Hold</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="createdDate">Created Date</label>
+      <input type="date" id="createdDate" formControlName="createdDate">
+    </div>
+    
+    <div class="form-group">
+      <label for="updatedDate">Updated Date</label>
+      <input type="date" id="updatedDate" formControlName="updatedDate">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="!rrForm.valid">Submit</button>
+    <button type="button" (click)="onReset()">Reset</button>
+  </div>
+</form>
+
+<div class="checklist-results" *ngIf="checklists.length > 0">
+  <h3>Existing Checklists</h3>
+  <div class="checklist-grid">
+    <div class="checklist-item" *ngFor="let checklist of checklists">
+      <h4>{{checklist.criteria1}}</h4>
+      <p><strong>Priority:</strong> {{checklist.criteria2}}</p>
+      <p><strong>Status:</strong> {{checklist.criteria3}}</p>
+      <p><strong>Description:</strong> {{checklist.description}}</p>
+      <p><strong>Created:</strong> {{checklist.createdDate}}</p>
+      <button (click)="deleteChecklist(checklist.id!)" class="delete-btn">Delete</button>
+    </div>
+  </div>
+</div>
