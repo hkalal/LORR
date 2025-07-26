@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RR Criteria Checklist</title>
+  <style>
+    /* ...existing code... */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 32px;
+      background: #f9f9f9;
+    }
+    h2 {
+      color: #333;
+    }
+    form {
+      background: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      max-width: 500px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 24px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>RR Criteria Checklist</h2>
+  <form id="rrChecklistForm">
+    <!-- Replace these with actual field names from your Excel sheet -->
+    <div class="form-group">
+      <label for="criteria1">Field 1: Description</label>
+      <input type="text" id="criteria1" name="criteria1">
+    </div>
+    <div class="form-group">
+      <label for="criteria2">Field 2: Priority</label>
+      <input type="text" id="criteria2" name="criteria2">
+    </div>
+    <div class="form-group">
+      <label for="criteria3">Field 3: Status</label>
+      <input type="text" id="criteria3" name="criteria3">
+    </div>
+    <!-- Add more fields as needed -->
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById('rrChecklistForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {};
+      Array.from(form.elements).forEach(el => {
+        if (el.name) data[el.name] = el.value;
+      });
+      console.log('Form Data:', data);
+      // You can add further processing here
+      alert('Form submitted! Check console for data.');
+    });
+  </script>
+</body>
+</html>

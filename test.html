@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Risk Review Template</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    fieldset { margin-bottom: 20px; padding: 15px; }
+    legend { font-weight: bold; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%; padding: 8px; margin-top: 4px;
+      box-sizing: border-box;
+    }
+    .small-input { width: 30%; display: inline-block; }
+    .inline { display: inline-block; vertical-align: top; margin-right: 10px; }
+    .checkbox-group,
+    .radio-group { margin-top: 10px; }
+    .radio-group label,
+    .checkbox-group label { display: inline-block; margin-right: 20px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+<form id="lrr-form">
+
+  <fieldset>
+    <legend>General & Project Info</legend>
+
+    <label for="sfdcRef">SFDC Reference No.</label>
+    <input type="text" id="sfdcRef" name="sfdcRef">
+
+    <label for="dateCreated">Date Created</label>
+    <input type="date" id="dateCreated" name="dateCreated">
+
+    <label for="securityLevel">Security Level</label>
+    <select id="securityLevel" name="securityLevel">
+      <option value="">Select…</option>
+      <option>Confidential</option>
+      <option>Internal</option>
+      <option>Public</option>
+    </select>
+
+    <label for="projectNo">Project No.</label>
+    <input type="text" id="projectNo" name="projectNo">
+
+    <label for="solution">Solution</label>
+    <select id="solution" name="solution">
+      <option value="">Select…</option>
+      <option>CSS Automated</option>
+      <option>NSPP</option>
+    </select>
+
+    <label for="creatorName">Creator Name</label>
+    <input type="text" id="creatorName" name="creatorName">
+
+    <label for="docStatus">Status of Document</label>
+    <select id="docStatus" name="docStatus">
+      <option value="">Select…</option>
+      <option>Draft</option>
+      <option>Final</option>
+    </select>
+
+    <label for="projectStatus">Project Status</label>
+    <select id="projectStatus" name="projectStatus">
+      <option value="">Select…</option>
+      <option>In Process</option>
+      <option>Won</option>
+      <option>Lost</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Project & Tender Details</legend>
+
+    <label for="projectName">Project Name</label>
+    <input type="text" id="projectName" name="projectName">
+
+    <label for="customerName">Customer Name</label>
+    <input type="text" id="customerName" name="customerName">
+
+    <label for="customerCountry">Customer Country</label>
+    <input type="text" id="customerCountry" name="customerCountry">
+
+    <label for="endUserName">End User Name</label>
+    <input type="text" id="endUserName" name="endUserName">
+
+    <label for="endUserCountry">End User Country</label>
+    <input type="text" id="endUserCountry" name="endUserCountry">
+
+    <label for="tenderResponsible">Tender Responsible</label>
+    <input type="text" id="tenderResponsible" name="tenderResponsible">
+
+    <label for="tenderUnit">Tendering Unit</label>
+    <input type="text" id="tenderUnit" name="tenderUnit">
+
+    <label for="mainScope">Main Scope</label>
+    <select id="mainScope" name="mainScope">
+      <option value="">Select…</option>
+      <option>Supply of Products & Spares with ETC</option>
+      <option>Supply of Products only</option>
+      <option>Services only</option>
+    </select>
+
+    <label for="estimatedBid">Estimated Bid Value (INR)</label>
+    <input type="number" id="estimatedBid" name="estimatedBid" step="0.01">
+
+    <label for="tenderDue">Tender Due Date</label>
+    <input type="date" id="tenderDue" name="tenderDue">
+
+    <label for="awardDate">Estimated Contract Award Date</label>
+    <input type="date" id="awardDate" name="awardDate">
+
+    <label for="salesManager">Front End Sales / Group Account Manager</label>
+    <input type="text" id="salesManager" name="salesManager">
+
+    <label for="projectManager">Project Manager</label>
+    <input type="text" id="projectManager" name="projectManager">
+
+    <label for="tpmStatus">TPM Process Completed</label>
+    <select id="tpmStatus" name="tpmStatus">
+      <option value="">Select…</option>
+      <option>Not Started</option>
+      <option>In Process</option>
+      <option>Completed</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>LRR Questionnaire</legend>
+
+    <!-- Question 1 -->
+    <div class="radio-group">
+      <p>1) Offer value is above 2 M USD?</p>
+      <label><input type="radio" name="q1" value="yes"> Yes</label>
+      <label><input type="radio" name="q1" value="no"> No</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="radio-group">
+      <p>2) Contract limitation of liability in line with policies?</p>
+      <label><input type="radio" name="q2" value="yes"> Yes</label>
+      <label><input type="radio" name="q2" value="no"> No</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="radio-group">
+      <p>3) Consequential losses clause in line with policies?</p>
+      <label><input type="radio" name="q3" value="yes"> Yes</label>
+      <label><input type="radio" name="q3" value="no"> No</label>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="radio-group">
+      <p>4) Availability/reliability guarantee or new tech involved?</p>
+      <label><input type="radio" name="q4" value="yes"> Yes</label>
+      <label><input type="radio" name="q4" value="no"> No</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="radio-group">
+      <p>5) Compliance with Minimum Commercial Standards?</p>
+      <label><input type="radio" name="q5" value="yes"> Yes</label>
+      <label><input type="radio" name="q5" value="no"> No</label>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="radio-group">
+      <p>6) Requires Nuclear Sales Policy risk review?</p>
+      <label><input type="radio" name="q6" value="yes"> Yes</label>
+      <label><input type="radio" name="q6" value="no"> No</label>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="radio-group">
+      <p>7) Anti-Bribery & Anti-Corruption trigger?</p>
+      <label><input type="radio" name="q7" value="yes"> Yes</label>
+      <label><input type="radio" name="q7" value="no"> No</label>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="radio-group">
+      <p>8) Related to an ACT Country?</p>
+      <label><input type="radio" name="q8" value="yes"> Yes</label>
+      <label><input type="radio" name="q8" value="no"> No</label>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="radio-group">
+      <p>9) Multi-Business Area Sales Frame Agreement?</p>
+      <label><input type="radio" name="q9" value="yes"> Yes</label>
+      <label><input type="radio" name="q9" value="no"> No</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Financial & Contract Terms</legend>
+
+    <label for="paymentTerms">Terms of Payment</label>
+    <textarea id="paymentTerms" name="paymentTerms" rows="3"></textarea>
+
+    <label for="warrantyMonths">Warranty Period (months)</label>
+    <input type="number" id="warrantyMonths" name="warrantyMonths">
+
+    <label for="warrantyClause">Warranty Clause Details</label>
+    <textarea id="warrantyClause" name="warrantyClause" rows="3"></textarea>
+
+    <label for="scopeDetail">Detail Scope of Supply</label>
+    <textarea id="scopeDetail" name="scopeDetail" rows="4"></textarea>
+
+    <label for="financingStatus">Customer's Financing Status</label>
+    <select id="financingStatus" name="financingStatus">
+      <option value="">Select…</option>
+      <option>Self-financed</option>
+      <option>Bank-financed</option>
+      <option>Export Credit Financed</option>
+    </select>
+
+    <label for="creditAssessment">Credit Assessment File (URL)</label>
+    <input type="url" id="creditAssessment" name="creditAssessment">
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="ldApplicable" name="ldApplicable"> LD Applicable</label>
+    </div>
+
+    <label for="ldCapping">LD Capping (%)</label>
+    <input type="text" id="ldCapping" name="ldCapping">
+
+    <label for="ldClause">LD Clause Details & Mitigation Plan</label>
+    <textarea id="ldClause" name="ldClause" rows="3"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>Risk Assessment & Mitigation</legend>
+    <label for="identifiedRisk">Identified Risks</label>
+    <textarea id="identifiedRisk" name="identifiedRisk" rows="3"></textarea>
+
+    <label for="mitigationPlan">Mitigation Plan</label>
+    <textarea id="mitigationPlan" name="mitigationPlan" rows="3"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>Delivery & Tax</legend>
+    <label for="deliveryIncoterms">Delivery Terms / Incoterms</label>
+    <select id="deliveryIncoterms" name="deliveryIncoterms">
+      <option value="">Select…</option>
+      <option>EXW</option>
+      <option>FCA</option>
+      <option>FAS</option>
+      <option>CPT</option>
+      <option>CIP</option>
+      <option>DAF</option>
+      <option>DES</option>
+      <option>DEQ</option>
+      <option>DDU</option>
+      <option>DDP</option>
+    </select>
+
+    <label for="taxExposure">Tax Exposure & Mitigation</label>
+    <textarea id="taxExposure" name="taxExposure" rows="3"></textarea>
+  </fieldset>
+
+  <fieldset>
+    <legend>Additional & Attachments</legend>
+    <label for="comments">Overall Comments</label>
+    <textarea id="comments" name="comments" rows="3"></textarea>
+
+    <div class="checkbox-group">
+      <label>
+        <input type="checkbox" id="confirmation" name="confirmation">
+        I confirm all questions are answered objectively and mitigating actions will be followed
+      </label>
+    </div>
+
+    <label for="attachments">Attachments (Excel, Word, PDF, PPT)</label>
+    <input type="file" id="attachments" name="attachments" multiple>
+  </fieldset>
+
+  <fieldset>
+    <legend>Project Financials</legend>
+
+    <label for="pfBidValue">Bid Value</label>
+    <input type="number" id="pfBidValue" name="pfBidValue" step="0.01">
+
+    <label for="pfGrossMargin">Gross Margin (%)</label>
+    <input type="number" id="pfGrossMargin" name="pfGrossMargin" step="0.01">
+
+    <label for="pfNetMargin">Net Margin (%)</label>
+    <input type="number" id="pfNetMargin" name="pfNetMargin" step="0.01">
+
+    <label for="pfWarrantyProv">Warranty Provision (%)</label>
+    <input type="number" id="pfWarrantyProv" name="pfWarrantyProv" step="0.01">
+
+    <label for="pfInflation">General Inflation (%)</label>
+    <input type="number" id="pfInflation" name="pfInflation" step="0.01">
+
+    <label for="pfContingencies">Contingencies (%)</label>
+    <input type="number" id="pfContingencies" name="pfContingencies" step="0.01">
+
+    <label for="pfRiskProv">Risk Provision (%)</label>
+    <input type="number" id="pfRiskProv" name="pfRiskProv" step="0.01">
+
+    <label for="pfTotalProv">Total Provision (%)</label>
+    <input type="number" id="pfTotalProv" name="pfTotalProv" step="0.01">
+
+    <label for="pfMatCost">Material Cost (%)</label>
+    <input type="number" id="pfMatCost" name="pfMatCost" step="0.01">
+
+    <label for="pfDeltaRR">Option Availability for Delta RR</label>
+    <input type="text" id="pfDeltaRR" name="pfDeltaRR">
+
+    <label for="pfApprovalComments">Default Comment for Approval</label>
+    <textarea id="pfApprovalComments" name="pfApprovalComments" rows="2"></textarea>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="pptOutput" name="pptOutput"> Output in PPT checked</label>
+    </div>
+  </fieldset>
+
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
