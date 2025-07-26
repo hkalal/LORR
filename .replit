@@ -37,3 +37,7 @@ args = "cd src && npm install && npm start"
 task = "shell.exec"
 args = "cd server && dotnet run"
 
+[[ports]]
+localPort = 5000
+externalPort = 80
+
