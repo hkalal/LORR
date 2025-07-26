@@ -1,4 +1,4 @@
-modules = ["web"]
+modules = ["web", "nodejs-20", "dotnet"]
 
 [nix]
 channel = "stable-25_05"
@@ -32,4 +32,8 @@ mode = "parallel"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd src && npm start"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && dotnet run"
 
