@@ -31,7 +31,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {},
+          "options": {
+            "buildTarget": "lrr-app:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "lrr-app:build:production"
